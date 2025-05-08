@@ -1,0 +1,62 @@
+create database practiceReactNodeNavbar;
+
+use practiceReactNodeNavbar;
+
+
+-- Create the department table
+CREATE TABLE department (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL
+);
+
+-- Create the employee table
+CREATE TABLE employee (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  salary DECIMAL(10, 2) NOT NULL,
+  address TEXT NOT NULL,
+  department_id INT NOT NULL,
+  FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE CASCADE
+);
+
+-- Insert sample departments
+INSERT INTO department (name) VALUES 
+('HR'),
+('Engineering'),
+('Marketing'),
+('Finance'),
+('Sales');
+
+
+-- Insert sample employees
+INSERT INTO employee (name, email, salary, address, department_id) VALUES
+('Rahul', 'rahul@gmail.com', 55000.00, '123 Main Street', 1),
+('Priya', 'priya@gmail.com', 70000.00, '456 Park Lane', 2),
+('Amit', 'amit@gmail.com', 60000.00, '789 Oak Avenue', 3),
+('Neha', 'neha@gmail.com', 65000.00, '101 Green Road', 4),
+('Vikas', 'vikas@gmail.com', 62000.00, '202 River Street', 5),
+('Sanjay', 'sanjay@gmail.com', 75000.00, '123 Sunset Blvd', 2),
+('Meera', 'meera@gmail.com', 68000.00, '45 Maple Road', 1),
+('Ravi', 'ravi@gmail.com', 54000.00, '678 Pine Drive', 3),
+('Pooja', 'pooja@gmail.com', 72000.00, '90 Birch Avenue', 4),
+('Karan', 'karan@gmail.com', 60000.00, '321 Elm Street', 5),
+('Divya', 'divya@gmail.com', 67000.00, '876 Cedar Lane', 2),
+('Sumit', 'sumit@gmail.com', 64000.00, '210 Walnut Street', 1),
+('Rita', 'rita@gmail.com', 63000.00, '543 Ash Blvd', 3),
+('Ajay', 'ajay@gmail.com', 55000.00, '765 Redwood Rd', 4),
+('Asha', 'asha@gmail.com', 69000.00, '432 Maple Street', 5);
+
+
+
+
+
+CREATE TABLE register_users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100),
+  email VARCHAR(100) UNIQUE,
+  password VARCHAR(255)
+);
+
+
+select * from register_users;
